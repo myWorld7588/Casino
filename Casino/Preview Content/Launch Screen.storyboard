@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                <rect key="frame" x="20" y="824" width="350" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Casino" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                                <rect key="frame" x="20" y="-43" width="350" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gfx-background" translatesAutoresizingMaskIntoConstraints="NO" id="Cwm-nN-TLs">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gfx-slot-machine" translatesAutoresizingMaskIntoConstraints="NO" id="dLp-MN-dP0">
+                                <rect key="frame" x="45" y="272" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="9ky-lt-zaB"/>
+                                    <constraint firstAttribute="height" constant="300" id="ufS-FZ-WVi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="5bP-gL-aNc"/>
+                            <constraint firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstAttribute="trailing" secondItem="Cwm-nN-TLs" secondAttribute="trailing" id="7Ar-CV-fLn"/>
+                            <constraint firstItem="dLp-MN-dP0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9qF-Mh-KPf"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="bottom" id="DTf-CW-XPK"/>
+                            <constraint firstAttribute="bottom" secondItem="Cwm-nN-TLs" secondAttribute="bottom" id="HkJ-Ma-fnt"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="IaJ-6x-ciK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cwm-nN-TLs" secondAttribute="trailing" id="Ifr-Ec-j8L"/>
+                            <constraint firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="Cwm-nN-TLs" secondAttribute="bottom" id="XHc-ND-uNC"/>
+                            <constraint firstItem="dLp-MN-dP0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XZ2-XX-NHW"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="bottom" id="aVL-PH-Fnn"/>
+                            <constraint firstAttribute="trailing" secondItem="Cwm-nN-TLs" secondAttribute="trailing" id="gBC-aV-hSj"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="bottom" id="jaP-Ob-X6Q"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="1" id="moa-c2-u7t"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="Cwm-nN-TLs" secondAttribute="bottom" id="nxK-tt-5xC"/>
+                            <constraint firstAttribute="trailing" secondItem="Cwm-nN-TLs" secondAttribute="trailing" id="oK0-Zh-9tt"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="oKs-hQ-nwY"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="ruj-A8-SNL"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="Cwm-nN-TLs" secondAttribute="bottom" id="tCx-2G-8VJ"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="x7j-FC-K8j"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="bottom" id="xVg-iu-u0Q"/>
+                            <constraint firstItem="Cwm-nN-TLs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="yJ1-mU-r2z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.307692307692307" y="374.64454976303318"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gfx-background" width="3072" height="3072"/>
+        <image name="gfx-slot-machine" width="2118" height="924"/>
+    </resources>
+</document>
