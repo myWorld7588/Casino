@@ -37,27 +37,115 @@ struct ContentView: View {
                 // MARK: - SCORE
                 
                 HStack {
-                    Text("Your\nCoins".uppercased())
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                    HStack {
+                        Text("Your\nCoins".uppercased())
+                            .scoreLabelStyle()
+                            .multilineTextAlignment(.trailing)
+                            
+                        
+                        Text("100")
+                            .scoreNumberStyle()
+                            .modifier(ScoreNumberModifier())
+                            
+                    }
+                    .modifier(ScoreContainerModifier())
                     
-                    Text("100")
-                        .foregroundColor(Color.white)
-                        .font(.system(.title, design: .rounded, weight: .heavy))
-                        .shadow(color: Color("ColorTransparentBlack"), radius: 0, x: 0, y: 3)
-                        .layoutPriority(1)
+                    Spacer()
+                    
+                    HStack {
+                        Text("200")
+                            .scoreNumberStyle()
+                            .modifier(ScoreNumberModifier())
+                        
+                        Text("High\nScore".uppercased())
+                            .scoreLabelStyle()
+                            .multilineTextAlignment(.leading)
+                            
+                        
+                    }
+                    .modifier(ScoreContainerModifier())
                 }
-                .padding(.vertical, 4)
-                .padding(.horizontal, 16)
-                .frame(minWidth: 128)
-                .background(
-                    Capsule().foregroundColor(Color("ColorTransparentBlack"))
-                )
                 
                 // MARK: - SLOT MACHINE
+                
+                VStack(alignment: .center, spacing: 0) {
+                    // MARK: - REEL #1
+                    ZStack {
+                        ReelView()
+                        Image("gfx-bell")
+                            .resizable()
+                            .modifier(ImageModifier())
+                    }
+                    
+                    HStack(alignment: .center, spacing: 0) {
+                        // MARK: - REEL #2
+                        ZStack {
+                            ReelView()
+                            Image("gfx-seven")
+                                .resizable()
+                                .modifier(ImageModifier())
+                        }
+                        
+                        Spacer()
+                        
+                        // MARK: - REEL #3
+                        ZStack {
+                            ReelView()
+                            Image("gfx-cherry")
+                                .resizable()
+                                .modifier(ImageModifier())
+                        }
+                    }
+                    .frame(maxWidth: 500)
+                    
+                    // MARK: - SPIN BUTTON
+                    Button(action: {
+                        print("Spin the reels")
+                    }) {
+                        Image("gfx-spin")
+                            .renderingMode(.original)
+                            .resizable()
+                            .modifier(ImageModifier())
+                            
+                    }
+                    
+                } //: SLOT MACHINE
+                
+                .layoutPriority(2)
+                
                 // MARK: - FOOTER
                 
                 Spacer()
+                
+                HStack {
+                    // MARK: - BET 20
+                    HStack(alignment: .center, spacing: 10) {
+                        Button(action: {
+                            print("Bet 20 coins")
+                        }) {
+                            Text("20")
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.white)
+                                .modifier(BetNumberModifier())
+                                
+                        }
+                        .background(
+                            Capsule().fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom))
+                        )
+                        .padding(3)
+                        .background(
+                            Capsule().fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .bottom, endPoint: .top))
+                    )
+                        
+                        Image("gfx-casino-chips")
+                            .resizable()
+                            .opacity(1)
+                            .scaledToFit()
+                            .frame(height: 64)
+                            .animation(.default)
+                            .modifier(ShadowModifiers())
+                    }
+                }
                 
             }
             // MARK: - BUTTON
