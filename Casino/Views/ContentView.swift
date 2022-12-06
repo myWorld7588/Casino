@@ -129,22 +129,36 @@ struct ContentView: View {
                                 .modifier(BetNumberModifier())
                                 
                         }
-                        .background(
-                            Capsule().fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .top, endPoint: .bottom))
-                        )
-                        .padding(3)
-                        .background(
-                            Capsule().fill(LinearGradient(gradient: Gradient(colors: [Color("ColorPink"), Color("ColorPurple")]), startPoint: .bottom, endPoint: .top))
-                    )
+                        .modifier(BetCapsuleModifier())
+                        
                         
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(1)
-                            .scaledToFit()
-                            .frame(height: 64)
-                            .animation(.default)
-                            .modifier(ShadowModifiers())
+                            .opacity(0)
+                            .modifier(CasinoChipModifier())
+                        
                     }
+                    
+                    // MARK: - BET 10
+                    HStack(alignment: .center, spacing: 10) {
+                        Image("gfx-casino-chips")
+                            .resizable()
+                            .opacity(1)
+                            .modifier(CasinoChipModifier())
+                        
+                        Button(action: {
+                            print("Bet 10 coins")
+                        }) {
+                            Text("10")
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color.yellow)
+                                .modifier(BetNumberModifier())
+                                
+                        }
+                        .modifier(BetCapsuleModifier())
+                        
+                    }
+                    
                 }
                 
             }
