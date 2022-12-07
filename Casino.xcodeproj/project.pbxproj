@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE2EC06E293EEA5200660AAB /* ReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC06D293EEA5200660AAB /* ReelView.swift */; };
+		CE2EC0702940204000660AAB /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC06F2940204000660AAB /* InfoView.swift */; };
 		CE9F970D293ED408006D8E56 /* CasinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F970C293ED408006D8E56 /* CasinoApp.swift */; };
 		CE9F970F293ED408006D8E56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F970E293ED408006D8E56 /* ContentView.swift */; };
 		CE9F9711293ED409006D8E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9F9710293ED409006D8E56 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		CE2EC06D293EEA5200660AAB /* ReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelView.swift; sourceTree = "<group>"; };
+		CE2EC06F2940204000660AAB /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		CE9F9709293ED408006D8E56 /* Casino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Casino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9F970C293ED408006D8E56 /* CasinoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasinoApp.swift; sourceTree = "<group>"; };
 		CE9F970E293ED408006D8E56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				CE9F970E293ED408006D8E56 /* ContentView.swift */,
 				CE9F972F293EDEC7006D8E56 /* LogoView.swift */,
 				CE2EC06D293EEA5200660AAB /* ReelView.swift */,
+				CE2EC06F2940204000660AAB /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				CE9F970F293ED408006D8E56 /* ContentView.swift in Sources */,
 				CE9F9730293EDEC7006D8E56 /* LogoView.swift in Sources */,
 				CE9F970D293ED408006D8E56 /* CasinoApp.swift in Sources */,
+				CE2EC0702940204000660AAB /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
