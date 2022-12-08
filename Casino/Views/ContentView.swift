@@ -43,13 +43,12 @@ struct ContentView: View {
             playerWins()
             // NEW HIGH SCROES
             if coins > highscore {
-                newHighScores()
+                newHighScore()
             }
             
         } else {
             // PLAYER LOSES
             playerLoses()
-
         }
     }
     
@@ -58,13 +57,24 @@ struct ContentView: View {
         
     }
     
-    func newHighScores() {
+    func newHighScore() {
         highscore = coins
     }
     
     func playerLoses() {
         coins -= betAmount
     }
+    
+    func activateBet20() {
+        betAmount = 20
+    }
+    
+    func activateBet10() {
+        betAmount = 10
+    }
+    
+    
+    
     // GAME IS OVER
     
 
@@ -99,7 +109,7 @@ struct ContentView: View {
                             .multilineTextAlignment(.trailing)
                             
                         
-                        Text("100")
+                        Text("\(coins)")
                             .scoreNumberStyle()
                             .modifier(ScoreNumberModifier())
                             
@@ -180,7 +190,7 @@ struct ContentView: View {
                     // MARK: - BET 20
                     HStack(alignment: .center, spacing: 10) {
                         Button(action: {
-                            print("Bet 20 coins")
+                            self.activateBet20()
                         }) {
                             Text("20")
                                 .fontWeight(.heavy)
@@ -206,7 +216,7 @@ struct ContentView: View {
                             .modifier(CasinoChipModifier())
                         
                         Button(action: {
-                            print("Bet 10 coins")
+                            self.activateBet10()
                         }) {
                             Text("10")
                                 .fontWeight(.heavy)
