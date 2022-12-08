@@ -20,6 +20,9 @@ struct ContentView: View {
     @State private var betAmount: Int = 10
     @State private var reels: Array = [0, 1, 2]
     @State private var showingInfoView: Bool = false
+    @State private var isActivateBet10: Bool = true
+    @State private var isActivateBet20: Bool = false
+    
     
     
     // FUNCTION
@@ -67,10 +70,14 @@ struct ContentView: View {
     
     func activateBet20() {
         betAmount = 20
+        isActivateBet20 = true
+        isActivateBet10 = false
     }
     
     func activateBet10() {
         betAmount = 10
+        isActivateBet10 = true
+        isActivateBet20 = false
     }
     
     
@@ -194,7 +201,7 @@ struct ContentView: View {
                         }) {
                             Text("20")
                                 .fontWeight(.heavy)
-                                .foregroundColor(Color.white)
+                                .foregroundColor(isActivateBet20 ? Color("ColorYellow") :  Color.white)
                                 .modifier(BetNumberModifier())
                                 
                         }
@@ -203,7 +210,7 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(0)
+                            .opacity(isActivateBet20 ? 1 : 0)
                             .modifier(CasinoChipModifier())
                         
                     }
@@ -212,7 +219,7 @@ struct ContentView: View {
                     HStack(alignment: .center, spacing: 10) {
                         Image("gfx-casino-chips")
                             .resizable()
-                            .opacity(1)
+                            .opacity(isActivateBet10 ? 1 : 0)
                             .modifier(CasinoChipModifier())
                         
                         Button(action: {
@@ -220,7 +227,7 @@ struct ContentView: View {
                         }) {
                             Text("10")
                                 .fontWeight(.heavy)
-                                .foregroundColor(Color.yellow)
+                                .foregroundColor(isActivateBet10 ? Color("ColorYellow") :  Color.white)
                                 .modifier(BetNumberModifier())
                                 
                         }
