@@ -22,6 +22,9 @@ struct ContentView: View {
     @State private var showingInfoView: Bool = false
     @State private var isActivateBet10: Bool = true
     @State private var isActivateBet20: Bool = false
+    @State private var showingModel: Bool = false
+    
+    
     
     
     
@@ -83,6 +86,12 @@ struct ContentView: View {
     
     
     // GAME IS OVER
+    func isGameOver() {
+        if coins <= 0 {
+            //SHOW MODEL WINDOW
+            showingModel = true
+        }
+    }
     
 
     // MARK: - BODY
@@ -177,6 +186,9 @@ struct ContentView: View {
                         
                         // Check Winning
                         self.checkWinning()
+                        
+                        // GAME IS OVER
+                        self.isGameOver()
                     }) {
                         Image("gfx-spin")
                             .renderingMode(.original)
@@ -260,8 +272,66 @@ struct ContentView: View {
             
             .padding()
             .frame(maxWidth: 720)
+            .blur(radius: $showingModel.wrappedValue ? 5 : 0, opaque: false)
             
             // MARK: - POPUP
+            if $showingModel.wrappedValue {
+                ZStack {
+                    Color("ColorTransparentBlack").edgesIgnoringSafeArea(.all)
+                    
+                    // MODEL
+                    VStack(spacing: 0) {
+                        Text("GAME OVER")
+                            .font(.system(.title, design: .rounded, weight: .heavy))
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color("ColorPink"))
+                            .foregroundColor(Color.white)
+                        
+                        Spacer()
+                        // MESSAGE
+                        VStack(alignment: .center, spacing: 16) {
+                            Image("gfx-seven-reel")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 72)
+                            
+                            Text("Bad Luck! You lost all of the coins. \nLet's play again!")
+                                .font(.system(.body, design: .rounded))
+                                .lineLimit(2)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(Color.gray)
+                                .layoutPriority(1)
+                            
+                            Button(action: {
+                                self.showingModel = false
+                                self.coins = 100
+                                
+                            }) {
+                                Text("New Game".uppercased())
+                                    .font(.system(.body, design: .rounded, weight: .semibold))
+                                    .accentColor(Color("ColorPink"))
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
+                                    .frame(minWidth: 128)
+                                    .background(
+                                        Capsule()
+                                            .strokeBorder(lineWidth: 1.75)
+                                            .foregroundColor(Color("ColorPink"))
+                                    )
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+                    
+                    .frame(minWidth: 200, idealWidth: 280, maxWidth: 320, minHeight: 260, idealHeight: 280, maxHeight: 320, alignment: .center)
+                        .background(Color.white)
+                        .cornerRadius(20)
+                        .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
+                }
+            }
+            
             
         } //: ZSTACK
         
