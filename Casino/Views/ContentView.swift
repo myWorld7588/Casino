@@ -23,8 +23,8 @@ struct ContentView: View {
     @State private var isActivateBet10: Bool = true
     @State private var isActivateBet20: Bool = false
     @State private var showingModel: Bool = false
-    
-    
+    @State private var animatingSymbol: Bool = false
+    @State private var animatingModel: Bool = false
     
     
     
@@ -165,6 +165,13 @@ struct ContentView: View {
                         Image(symbols[reels[0]])
                             .resizable()
                             .modifier(ImageModifier())
+                            .opacity(animatingSymbol ? 1 : 0)
+                            .offset(y: animatingSymbol ? 0 : -50)
+                            .animation(.easeOut(duration: Double.random(in: 0.7...0.9)))
+                            
+                            .onAppear(perform: {
+                                self.animatingSymbol.toggle()
+                            })
                     }
                     
                     HStack(alignment: .center, spacing: 0) {
@@ -174,6 +181,12 @@ struct ContentView: View {
                             Image(symbols[reels[1]])
                                 .resizable()
                                 .modifier(ImageModifier())
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y: animatingSymbol ? 0 : -50)
+                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)))
+                                .onAppear(perform: {
+                                    self.animatingSymbol.toggle()
+                                })
                         }
                         
                         Spacer()
@@ -184,13 +197,30 @@ struct ContentView: View {
                             Image(symbols[reels[2]])
                                 .resizable()
                                 .modifier(ImageModifier())
+                                .opacity(animatingSymbol ? 1 : 0)
+                                .offset(y: animatingSymbol ? 0 : -50)
+                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)))
+                                .onAppear(perform: {
+                                    self.animatingSymbol.toggle()
+                                })
                         }
                     }
                     .frame(maxWidth: 500)
                     
                     // MARK: - SPIN BUTTON
                     Button(action: {
+                        // 1. Set the default state: no animation
+                        withAnimation{
+                            self.animatingSymbol = false
+                        }
+                        
+                        //2. spin the reels with changing the symbol
                         self.spinReels()
+                        
+                        // 3. trigger the animation after changing the symbol
+                        withAnimation {
+                            self.animatingSymbol = true
+                        }
                         
                         // Check Winning
                         self.checkWinning()
@@ -230,15 +260,20 @@ struct ContentView: View {
                         
                         Image("gfx-casino-chips")
                             .resizable()
+                            .offset(x: isActivateBet20 ? 0 : 20)
                             .opacity(isActivateBet20 ? 1 : 0)
                             .modifier(CasinoChipModifier())
                         
                     }
                     
+                    Spacer()
+                    
+                    
                     // MARK: - BET 10
                     HStack(alignment: .center, spacing: 10) {
                         Image("gfx-casino-chips")
                             .resizable()
+                            .offset(x: isActivateBet10 ? 1 : -20)
                             .opacity(isActivateBet10 ? 1 : 0)
                             .modifier(CasinoChipModifier())
                         
@@ -313,6 +348,8 @@ struct ContentView: View {
                             
                             Button(action: {
                                 self.showingModel = false
+                                self.animatingModel = false
+                                self.activateBet10()
                                 self.coins = 100
                                 
                             }) {
@@ -337,6 +374,12 @@ struct ContentView: View {
                         .background(Color.white)
                         .cornerRadius(20)
                         .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
+                        .opacity($animatingModel.wrappedValue ? 1 : 0)
+                        .offset(y: $animatingModel.wrappedValue ? 1 : -100)
+                        .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0))
+                        .onAppear(perform: {
+                            self.animatingModel = true
+                        })
                 }
             }
             
