@@ -81,7 +81,7 @@ struct CasinoChipModifier: ViewModifier {
         content
             .scaledToFit()
             .frame(height: 64)
-            .animation(.default)
+            .animation(.default, value: 0)
             .modifier(ShadowModifiers())
     }
 }

@@ -166,8 +166,8 @@ struct ContentView: View {
                             .resizable()
                             .modifier(ImageModifier())
                             .opacity(animatingSymbol ? 1 : 0)
-                            .offset(y: animatingSymbol ? 0 : -50)
-                            .animation(.easeOut(duration: Double.random(in: 0.7...0.9)))
+                            
+                            .animation(.easeOut(duration: Double.random(in: 0.7...0.9)), value: -20)
                             
                             .onAppear(perform: {
                                 self.animatingSymbol.toggle()
@@ -183,7 +183,7 @@ struct ContentView: View {
                                 .modifier(ImageModifier())
                                 .opacity(animatingSymbol ? 1 : 0)
                                 .offset(y: animatingSymbol ? 0 : -50)
-                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)))
+                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)), value: -20)
                                 .onAppear(perform: {
                                     self.animatingSymbol.toggle()
                                 })
@@ -199,7 +199,7 @@ struct ContentView: View {
                                 .modifier(ImageModifier())
                                 .opacity(animatingSymbol ? 1 : 0)
                                 .offset(y: animatingSymbol ? 0 : -50)
-                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)))
+                                .animation(.easeOut(duration: Double.random(in: 0.7...0.9)), value: -20)
                                 .onAppear(perform: {
                                     self.animatingSymbol.toggle()
                                 })
@@ -376,7 +376,7 @@ struct ContentView: View {
                         .shadow(color: Color("ColorTransparentBlack"), radius: 6, x: 0, y: 8)
                         .opacity($animatingModel.wrappedValue ? 1 : 0)
                         .offset(y: $animatingModel.wrappedValue ? 1 : -100)
-                        .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0))
+                        .animation(Animation.spring(response: 0.6, dampingFraction: 1.0, blendDuration: 1.0), value: -100)
                         .onAppear(perform: {
                             self.animatingModel = true
                         })
